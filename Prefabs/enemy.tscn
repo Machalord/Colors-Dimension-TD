@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bme6ewufdqi5u"]
+
+[ext_resource type="Texture2D" uid="uid://bmbj44wnk63gg" path="res://Assets/Placeholder/enemy.png" id="1_leowk"]
+[ext_resource type="Script" uid="uid://bd1g3s33xcdvk" path="res://Scripts/Enemy.gd" id="1_lgw76"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lgw76"]
+radius = 32.01562
+
+[node name="Enemy" type="PathFollow2D" unique_id=1737057579]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=841375505]
+script = ExtResource("1_lgw76")
+
+[node name="Enemy" type="Sprite2D" parent="CharacterBody2D" unique_id=322081430]
+rotation = 1.5707964
+texture = ExtResource("1_leowk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1352050576]
+shape = SubResource("CircleShape2D_lgw76")
