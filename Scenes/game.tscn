@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bls7ivscmotvv" path="res://Assets/Placeholder/road.png" id="2_wrm1d"]
 [ext_resource type="Texture2D" uid="uid://cnr6fspao6yuo" path="res://icon.svg" id="3_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://bme6ewufdqi5u" path="res://Prefabs/enemy.tscn" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://bluddlprq0tba" path="res://Prefabs/turret.tscn" id="5_wowpa"]
+[ext_resource type="PackedScene" uid="uid://yp2j3ub3cl73" path="res://Prefabs/spanwer.tscn" id="6_1l0tm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3dryh"]
 texture = ExtResource("1_qxrlw")
@@ -118,3 +120,8 @@ curve = SubResource("Curve2D_wowpa")
 [node name="Enemy" parent="Path2D" unique_id=1737057579 instance=ExtResource("4_3dryh")]
 position = Vector2(37, 548)
 rotation = -0.048349384
+
+[node name="Turret" parent="." unique_id=1565972831 instance=ExtResource("5_wowpa")]
+position = Vector2(333, 367)
+
+[node name="Spanwer" parent="." unique_id=1047721164 instance=ExtResource("6_1l0tm")]

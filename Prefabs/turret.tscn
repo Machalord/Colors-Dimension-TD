@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bluddlprq0tba"]
+
+[ext_resource type="Script" uid="uid://cgvdjefccv54d" path="res://Scripts/Turret.gd" id="1_a38va"]
+[ext_resource type="Texture2D" uid="uid://k4tp1i3vdvwy" path="res://Assets/Placeholder/turretbase.png" id="1_ru586"]
+[ext_resource type="Texture2D" uid="uid://bb1bj710wk4dd" path="res://Assets/Placeholder/turretcannon.png" id="2_a38va"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jmsgf"]
+radius = 224.11
+
+[node name="Turret" type="Area2D" unique_id=1565972831]
+script = ExtResource("1_a38va")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=683856230]
+shape = SubResource("CircleShape2D_jmsgf")
+
+[node name="Turretbase" type="Sprite2D" parent="." unique_id=1408577559]
+texture = ExtResource("1_ru586")
+
+[node name="Turretcannon" type="Sprite2D" parent="." unique_id=2117359602]
+rotation = 1.5707964
+texture = ExtResource("2_a38va")
+offset = Vector2(0, -50)
+
+[node name="BulletSpawnPoint" type="Marker2D" parent="." unique_id=143214655]
+position = Vector2(112, 0)
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=1968371278]
+wait_time = 0.2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

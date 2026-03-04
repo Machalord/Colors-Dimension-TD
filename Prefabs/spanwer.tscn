@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://yp2j3ub3cl73"]
+
+[node name="Spanwer" type="Node2D" unique_id=1047721164]
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1787866969]
