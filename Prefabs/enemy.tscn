@@ -6,14 +6,14 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_lgw76"]
 radius = 32.01562
 
-[node name="Enemy" type="PathFollow2D" unique_id=1737057579]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=841375505]
+[node name="Enemy" type="PathFollow2D" unique_id=1737057579 groups=["Enemy"]]
 script = ExtResource("1_lgw76")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=841375505 groups=["Enemy"]]
 
 [node name="Enemy" type="Sprite2D" parent="CharacterBody2D" unique_id=322081430]
 rotation = 1.5707964
 texture = ExtResource("1_leowk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1352050576]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1352050576 groups=["Enemy"]]
 shape = SubResource("CircleShape2D_lgw76")

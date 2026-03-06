@@ -6,7 +6,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_tuf4i"]
 
 [node name="Bullet" type="Area2D" unique_id=1969131018]
+z_index = 100
 script = ExtResource("1_m4f65")
+speed = 500
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2094384191]
 shape = SubResource("CircleShape2D_tuf4i")
@@ -15,4 +17,7 @@ shape = SubResource("CircleShape2D_tuf4i")
 modulate = Color(1, 0, 1, 1)
 texture = ExtResource("1_0oen4")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1526722841]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
