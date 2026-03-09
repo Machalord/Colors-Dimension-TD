@@ -16,8 +16,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	
-	if currentTarget:
+	if is_instance_valid(currentTarget):
 		look_at(currentTarget.global_position)
+	else:
+		SelectNewTarget()	
 		
 	pass
 	
@@ -63,8 +65,16 @@ func _on_body_exited(body: Node2D) -> void:
 	
 func SelectNewTarget()->void:
 	
+	
+	var i=targetsOnRange.size()-1	
+	
+	while i>=0:
+		if not is_instance_valid(targetsOnRange[i]):
+				targetsOnRange.remove_at(i)
+		i-=1			
+	
 	if targetsOnRange.is_empty():
-		currentTarget=null
+		currentTarget=null	
 		return
 		
 	var bestTarget=targetsOnRange[0]
