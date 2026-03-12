@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://8j3fnadavtga"]
+
+[ext_resource type="Script" uid="uid://dlf6fguvaluat" path="res://Scripts/Spawner.gd" id="1_spawner"]
+[ext_resource type="PackedScene" uid="uid://bme6ewufdqi5u" path="res://Prefabs/enemy.tscn" id="2_woko2"]
+
+[node name="Spawner" type="Node2D" unique_id=1047721164]
+script = ExtResource("1_spawner")
+enemy_scene = ExtResource("2_woko2")
+auto_start = true
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1787866969]

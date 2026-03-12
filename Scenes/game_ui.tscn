@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=4 uid="uid://ui_game"]
+
+[ext_resource type="Script" path="res://Scripts/GameUI.gd" id="1_ui"]
+
+[node name="GameUI" type="CanvasLayer"]
+script = ExtResource("1_ui")
+
+[node name="WorldIndicator" type="PanelContainer" parent="."]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 60.0
+
+[node name="Label" type="Label" parent="WorldIndicator"]
+layout_mode = 2
+text = "World 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoreHealth" type="PanelContainer" parent="."]
+offset_left = 20.0
+offset_top = 80.0
+offset_right = 250.0
+offset_bottom = 110.0
+
+[node name="ProgressBar" type="ProgressBar" parent="CoreHealth"]
+layout_mode = 2
+max_value = 100.0
+value = 100.0
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="CoreHealth"]
+layout_mode = 2
+text = "Core Health: 100/100"
+horizontal_alignment = 1
+vertical_alignment = 1

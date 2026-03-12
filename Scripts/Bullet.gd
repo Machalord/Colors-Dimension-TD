@@ -1,34 +1,35 @@
 extends Area2D
 
-
 @export var damage:int =10
-
 @export var speed:int =10
+@export var world_id: int = 0  # Which world this bullet belongs to
 
 var direction:Vector2 = Vector2.RIGHT
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	var wm = get_tree().root.get_node_or_null("WorldManager")
+	if wm:
+		wm.world_changed.connect(_on_world_changed)
+		visible = (wm.current_world_id == world_id)
 
+func _on_world_changed(from_id: int, to_id: int) -> void:
+	visible = (to_id == world_id)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var wm = get_tree().root.get_node_or_null("WorldManager")
+	if wm and wm.current_world_id != world_id:
+		return
 	
 	position+=direction*speed*delta
-	pass
-
 
 func _on_body_entered(body: Node2D) -> void: 
-	if body.owner.is_in_group("Enemy"):
+	if body.owner and body.owner.is_in_group("Enemy"):
+		if body.owner.world_id != world_id:
+			return
+		
 		if body.owner.has_method("Hit"):
 			body.owner.Hit(damage)
-		queue_free()	
-			
-		
-	pass # Replace with function body.
-
+		queue_free()		
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	queue_free()	
-	pass # Replace with function body.
+	queue_free()

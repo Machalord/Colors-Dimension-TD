@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bxk7y2d8qv3m"]
+
+[ext_resource type="Script" uid="uid://cpyxmqn3wjd5s" path="res://Scripts/SharedCore.gd" id="1_core"]
+[ext_resource type="Texture2D" uid="uid://cnr6fspao6yuo" path="res://icon.svg" id="2_icon"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_core"]
+radius = 40.0
+
+[node name="SharedCore" type="Area2D"]
+script = ExtResource("1_core")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_core")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_icon")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

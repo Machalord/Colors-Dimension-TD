@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bk30463s0e1lp"]
+
+[ext_resource type="Script" uid="uid://bb1h7xu38jnko" path="res://Scripts/World.gd" id="1_world"]
+[ext_resource type="PackedScene" uid="uid://bluddlprq0tba" path="res://Prefabs/turret.tscn" id="2_spawner"]
+
+[sub_resource type="TileSet" id="TileSet_go701"]
+
+[node name="World" type="Node2D" unique_id=929540130]
+script = ExtResource("1_world")
+
+[node name="Map" type="TileMapLayer" parent="." unique_id=1448908827]
+tile_set = SubResource("TileSet_go701")
+
+[node name="Path" type="Path2D" parent="." unique_id=956720079]
+
+[node name="Spawner" parent="." unique_id=160620236 instance=ExtResource("2_spawner")]
+
+[node name="TurretContainer" type="Node2D" parent="." unique_id=2088363971]
+
+[node name="Core" type="Area2D" parent="." unique_id=1751858962]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=229053068]
+position = Vector2(800, 350)
+limit_left = 0
+limit_top = 0
+limit_right = 1600
+limit_bottom = 800
+current = true

@@ -13,6 +13,11 @@ config_version=5
 config/name="Colors-Dimension-TD"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+run/main_scene="res://Scenes/game.tscn"
+
+[autoload]
+
+WorldManager="*res://Scripts/WorldManager.gd"
 
 [display]
 
